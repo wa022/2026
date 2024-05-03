@@ -1,7 +1,7 @@
 // Function to fetch book data from Google Sheets API
 async function fetchBookData() {
     try {
-        const response = await fetch("https://sheets.googleapis.com/v4/spreadsheets/1eFNyOTc1sjFwoBYA5FzB4f-ecGs0w-COjOZ_mXLWBbo/values/Sheet1!A2:E100?key=YOUR_API_KEY");
+        const response = await fetch("https://sheets.googleapis.com/v4/spreadsheets/1eFNyOTc1sjFwoBYA5FzB4f-ecGs0w-COjOZ_mXLWBbo/values/Sheet1!A1:I100?key=AIzaSyB5WTjIR5OZt108xl9uQApzeoNRWuMyYRE");
         const data = await response.json();
         return data.values;
     } catch (error) {
