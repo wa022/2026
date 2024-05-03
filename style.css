@@ -1,0 +1,64 @@
+/* تعيين الخطوط العريضة للصفحة */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* تنسيق رأس الصفحة */
+header {
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+}
+
+/* تنسيق العنوان الرئيسي */
+h1 {
+  color: #333;
+}
+
+/* تنسيق حاوية المعرض */
+#book-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* تنسيق كل كتاب */
+.book {
+  flex: 1 0 33.33%;
+  margin: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  padding: 15px;
+  text-align: center;
+}
+
+/* تنسيق صورة الكتاب */
+.book img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* تنسيق عنوان الكتاب */
+.book h2 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+/* تنسيق وصف الكتاب */
+.book p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* تنسيق شاشات الهاتف (استعلام الوسائط) */
+@media (max-width: 768px) {
+  #book-gallery {
+    flex-direction: column;
+  }
+  .book {
+    flex: 1 0 100%;
+  }
+}
