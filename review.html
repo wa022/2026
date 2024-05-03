@@ -10,12 +10,60 @@
     <header>
         <h1>Book Review</h1>
     </header>
-    <section id="book-review">
-        <!-- Book review will be dynamically added here -->
+    <section id="book-details">
+        <h2>Book Details</h2>
+        <table id="book-table">
+            <tr>
+                <th>Title</th>
+                <td id="title"></td>
+            </tr>
+            <tr>
+                <th>Cover</th>
+                <td><img id="cover" src="" alt="Book Cover"></td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td id="author"></td>
+            </tr>
+            <tr>
+                <th>Review</th>
+                <td id="review"></td>
+            </tr>
+        </table>
     </section>
     <footer>
         <p>&copy; 2024 Book Review</p>
     </footer>
-    <script src="script.js"></script>
+    <script>
+        // Function to parse URL parameters
+        function parseUrlParams() {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const title = urlParams.get('title');
+            const author = urlParams.get('author');
+            const cover = urlParams.get('cover');
+            const review = urlParams.get('review');
+            return { title, author, cover, review };
+        }
+
+        // Function to display book review on the review page
+        function displayBookReview() {
+            const { title, author, cover, review } = parseUrlParams();
+            const bookTable = document.getElementById("book-table");
+
+            if (!title || !author || !cover || !review) {
+                bookTable.innerHTML = "<tr><td colspan='2'>No review available.</td></tr>";
+                return;
+            }
+
+            document.getElementById("title").textContent = title;
+            document.getElementById("cover").src = cover;
+            document.getElementById("author").textContent = author;
+            document.getElementById("review").textContent = review;
+        }
+
+        // Call displayBookReview() when the page loads
+        window.onload = displayBookReview;
+    </script>
 </body>
 </html>
